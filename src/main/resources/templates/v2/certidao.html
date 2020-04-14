@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+
+        @page{
+
+            @bottom-left {
+                content: element(footer);
+                vertical-align: top;
+                padding-top: 10px;
+                /*      border: solid red;    */
+            }
+
+            @top-right {
+                content: element(header);
+                vertical-align: bottom;
+                padding-bottom: 10px;
+                /*          border: solid green;   */
+            }
+
+            size: A4 portrait;
+            margin-top:5.5cm;
+            margin-left:3cm;
+            margin-right:2cm;
+            margin-bottom:3.7cm;
+        }
+
+        div.header {
+            display: block;
+            position: running(header);
+            /*border-bottom: 1px solid black;*/
+        }
+
+        div.footer {
+            margin-top: 0.5cm;
+            display: block;
+            position: running(footer);
+            border-top: 1px solid black;
+        }
+
+        div.content {
+            /*  border: solid purple;  */
+            display: block;
+            width: 15.4cm;
+            text-align: justify;
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        table {
+            margin: 1cm 0;
+            width: 100%;
+        }
+
+        td {
+            font-size: 14px;
+            border: 1px solid transparent;
+        }
+
+        td.titulo {
+            width: 30%;
+            overflow: hidden;
+        }
+
+        td.titulo div:before {
+            float: left;
+            width: 0;
+            white-space: nowrap;
+            content: "." "."
+        }
+
+        td.titulo span:first-child {
+            padding-right: 0.25em;
+            background: white
+        }
+
+        td.titulo span + span {
+            float: right;
+            padding-left: 0.25em;
+            background: white
+        }
+
+        td.espaco {
+            width: 10%;
+        }
+
+        td.valor {
+            width: 15%;
+            text-align: right;
+        }
+
+        img.imagem-ficha {
+            height: 19cm;
+            width: auto;
+            margin: 1cm auto 0;
+            text-align: center;
+            page-break-after: always;
+        }
+
+        .quebra-linha {}
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="../../reports/images/header-certidao.png" width="1000"
+         th:src="@{../../reports/images/header-certidao.png}"/>
+</div>
+
+<div class="footer" style="font-family: Courier New, monospace">
+    <div>Pedido n. 26, de 06/04/2020</div>
+    <p>Certidão emitida em 10/04/2020 às 02:07:48</p>
+    <p>Página <span id="pagenumber"></span> de <span id="pagecount"></span></p>
+</div>
+
+<div class="content">
+    <div th:remove="tag" th:utext="${CORPO}"></div>
+</div>
+
+</body>
+</html>

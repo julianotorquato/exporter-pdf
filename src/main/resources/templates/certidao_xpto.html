@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+<head>
+    <title th:text="#{email.activation.title}">JHipster activation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+</head>
+<body>
+<header th:insert="fragments/header-xpto.html :: header"> </header>
+<p>Conteúdo do cliente XPTO</p>
+<div th:replace="fragments/footer-xpto.html :: footer"></div>
+</body>
+</html>

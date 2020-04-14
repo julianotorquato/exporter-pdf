@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+
+        @page{
+
+            @bottom-left {
+                content: element(footer);
+                vertical-align: top;
+                padding-top: 10px;
+                /*      border: solid red;    */
+            }
+
+            @top-right {
+                content: element(header);
+                vertical-align: bottom;
+                padding-bottom: 10px;
+                /*          border: solid green;   */
+            }
+
+            size: A4 portrait;
+            margin-top:5.5cm;
+            margin-left:3cm;
+            margin-right:2cm;
+            margin-bottom:3.7cm;
+        }
+
+        div.header {
+            display: block;
+            position: running(header);
+            /*border-bottom: 1px solid black;*/
+        }
+
+        div.footer {
+            margin-top: 0.5cm;
+            display: block;
+            position: running(footer);
+            border-top: 1px solid black;
+        }
+
+        div.content {
+            /*  border: solid purple;  */
+            display: block;
+            width: 15.4cm;
+            text-align: justify;
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        table {
+            margin: 1cm 0;
+            width: 100%;
+        }
+
+        td {
+            font-size: 14px;
+            border: 1px solid transparent;
+        }
+
+        td.titulo {
+            width: 30%;
+            overflow: hidden;
+        }
+
+        td.titulo div:before {
+            float: left;
+            width: 0;
+            white-space: nowrap;
+            content: "." "."
+        }
+
+        td.titulo span:first-child {
+            padding-right: 0.25em;
+            background: white
+        }
+
+        td.titulo span + span {
+            float: right;
+            padding-left: 0.25em;
+            background: white
+        }
+
+        td.espaco {
+            width: 10%;
+        }
+
+        td.valor {
+            width: 15%;
+            text-align: right;
+        }
+
+        img.imagem-ficha {
+            height: 19cm;
+            width: auto;
+            margin: 1cm auto 0;
+            text-align: center;
+            page-break-after: always;
+        }
+
+        .quebra-linha {}
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="../../reports/images/header-certidao.png" width="1000"
+         th:src="@{../../reports/images/header-certidao.png}"/>
+</div>
+
+<div class="footer" style="font-family: Courier New, monospace">
+    <div>Pedido n. 26, de 06/04/2020</div>
+    <p>Certidão emitida em 10/04/2020 às 02:07:48</p>
+    <p>Página <span id="pagenumber"></span> de <span id="pagecount"></span></p>
+</div>
+
+<div class="content">
+    <div>
+        <br/>
+        <p style="text-align:center;font-size:20px"><b abrir="">CERTIDÃO DE ÔNUS E AÇÕES</b></p>
+        <p><b abrir="">CERTIFICA</b> que, em relação à área de terreno urbano, com 66,00m², situada na Rua Vila Boa, <strong>Granjas Santos Dumont</strong>, de propriedade de <b>SEBASTIÃO DE BRITO CARVALHO</b>, transcrita nesta Serventia sob n. <b>3</b> no Livro 3-AJ, fl. 247, <b abrir=""> existem ônus</b>, conforme consta na <strong>Inscrição n. 1.747, Livro 4-A, fls. 241, em 25/05/1961: Reserva de Usufruto Vitalício</strong> para Jandira Ferreira Rios, brasileira, desquitada proprietária, residente e domiciliada nesta Capital, e <b>não existem ações</b>, reais ou pessoais reipersecutórias. Certidão emitida nos termos do art. 19, § 1º, da Lei n. 6.015/1973 e item 80, inciso XI, da Tabela XIV do Regimento de Custas e Emolumentos do Estado de Goiás.</p>
+        <table>
+            <tr>
+                <td class="titulo">
+                    <div><span>Emols.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">26,84</td>
+                <td class="espaco"></td>
+                <td class="titulo">
+                    <div><span>Fundesp.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">2,68</td>
+            </tr>
+            <tr>
+                <td class="titulo">
+                    <div><span>Fundaf.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">0,40</td>
+                <td class="espaco"></td>
+                <td class="titulo">
+                    <div><span>Funesp.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">2,15</td>
+            </tr>
+            <tr>
+                <td class="titulo">
+                    <div><span>Estado.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">0,81</td>
+                <td class="espaco"></td>
+                <td class="titulo">
+                    <div><span>Fesemps:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">1,07</td>
+            </tr>
+            <tr>
+                <td class="titulo">
+                    <div><span>Funemp.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">0,81</td>
+                <td class="espaco"></td>
+                <td class="titulo">
+                    <div><span>Funcomp:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">0,67</td>
+            </tr>
+            <tr>
+                <td class="titulo">
+                    <div><span>Fepadsaj.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">0,54</td>
+                <td class="espaco"></td>
+                <td class="titulo">
+                    <div><span>Funproge:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">0,67</td>
+            </tr>
+            <tr>
+                <td class="titulo">
+                    <div><span>Fundepeg.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">0,54</td>
+                <td class="espaco"></td>
+                <td class="titulo">
+                    <div><span>Femal:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">0,40</td>
+            </tr>
+            <tr>
+                <td class="titulo">
+                    <div><span>Taxa Jud.:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">15,14</td>
+                <td class="espaco"></td>
+                <td class="titulo">
+                    <div><span>ISS:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">1,34</td>
+            </tr>
+            <tr>
+                <td class="titulo">
+                    <div><span>Total:</span> <span>R$</span></div>
+                </td>
+                <td class="valor">54,062</td>
+                <td class="espaco"></td>
+            </tr>
+        </table>
+        <center>Selo digital n. <b><span class="text-danger-soft erro-minuta" style="color: red;">${SELO}</span></b></center>
+        <br/>
+        <center>Consulte o selo em: https://extrajudicial.tjgo.jus.br/selo</center>
+        <br/>
+        <br/>
+        <center>Goiânia/GO, 10 de Abril de 2020</center>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <center>___________________________________</center>
+        <center><span class="text-danger-soft erro-minuta" style="color: red;">${NOME_USUARIO}</span></center>
+        <br/>
+        <br/>
+        <p>Atenção: para fins de transmissão (compra e venda, permuta, doação etc.), essa certidão possui validade de 30 (trinta) dias, conforme estabelece o art. 1°, IV, b, do Decreto n. 93.240/1986, que regulamenta a Lei n. 7.433/1985.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

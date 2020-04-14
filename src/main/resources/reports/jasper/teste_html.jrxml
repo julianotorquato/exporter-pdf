@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="oficio" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9b92a002-4db7-4918-ba8c-5b33f4732c03">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Text_8" mode="Transparent" hTextAlign="Center" markup="none" pattern="" fontName="SansSerif" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<subDataset name="projecoesDividasDataSet" uuid="768b5c02-1602-4bb9-b56d-a8750f7d948c">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="dataRecebimento" class="java.util.Calendar"/>
+		<field name="valorPurgaDebito" class="java.math.BigDecimal"/>
+	</subDataset>
+	<parameter name="nomeRI" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="numeroOficio" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="htmlRico" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="valorRequerimentoTotal" class="java.math.BigDecimal"/>
+	<field name="valorRequerimentoEmolumento" class="java.math.BigDecimal"/>
+	<field name="valorRequerimentoAdicional" class="java.math.BigDecimal"/>
+	<field name="htmlRico" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="200">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="490" splitType="Stretch">
+			<image>
+				<reportElement x="-15" y="0" width="560" height="490" uuid="08f26311-f467-466b-9866-d36c3f730937"/>
+				<imageExpression><![CDATA[""]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

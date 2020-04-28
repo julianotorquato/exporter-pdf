@@ -11,8 +11,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.w3c.dom.Document;
-import org.w3c.tidy.Tidy;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -100,20 +98,27 @@ public class PDFUtils {
     }
 
     private static void convert(String input, OutputStream out) throws Exception {
-        convert(new ByteArrayInputStream(input.getBytes()), out);
+        ITextRenderer renderer = new ITextRenderer();
+        renderer.setDocumentFromString(input);
+        renderer.layout();
+        renderer.createPDF(out, false);
+        renderer.finishPDF();
+        //convert(new ByteArrayInputStream(input.getBytes()), out);
     }
 
-    private static void convert(InputStream input, OutputStream out) throws Exception {
-        Tidy tidy = new Tidy();
-        Document doc = tidy.parseDOM(input, null);
-        ITextRenderer renderer = new ITextRenderer();
-//        for (File arquivo : UtilArquivo.listaArquivosDiretorio(ParserInfraestrutura.getFonts())) {
-//            renderer.getFontResolver().addFont(arquivo.getAbsolutePath(), Boolean.TRUE);
-//        }
-        renderer.setDocument(doc, null);
-        renderer.layout();
-        renderer.createPDF(out);
-    }
+//    private static void convert(String processedHtml, OutputStream out) throws Exception {
+//        Tidy tidy = new Tidy();
+//        Document doc = tidy.parseDOM(input, null);
+//        ITextRenderer renderer = new ITextRenderer();
+////        for (File arquivo : UtilArquivo.listaArquivosDiretorio(ParserInfraestrutura.getFonts())) {
+////            renderer.getFontResolver().addFont(arquivo.getAbsolutePath(), Boolean.TRUE);
+////        }
+//        renderer.setDocument(doc, null);
+//        renderer.layout();
+//        renderer.createPDF(out);
+//
+//
+//    }
 
     private static void concatPDFs(List<InputStream> streamOfPDFFiles, OutputStream outputStream, boolean paginate) {
         com.itextpdf.text.Document document = null; 

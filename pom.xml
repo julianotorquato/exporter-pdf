@@ -73,13 +73,6 @@
 			<version>6.0.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.w3c.tidy/com.springsource.org.w3c.tidy -->
-		<dependency>
-			<groupId>org.w3c.tidy</groupId>
-			<artifactId>com.springsource.org.w3c.tidy</artifactId>
-			<version>0.0.0.04aug2000r7-dev</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-pdf-itext5 -->
 		<dependency>
 			<groupId>org.xhtmlrenderer</groupId>

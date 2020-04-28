@@ -29,7 +29,7 @@ public class Test_PerformaceMergePDF {
 
         List<File> files = new ArrayList<>();
 
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 200; i++) {
             String nameFile = UUID.randomUUID().toString().concat(EXTENSION);
             File file = new File(pathFile, nameFile);
             file.createNewFile();
